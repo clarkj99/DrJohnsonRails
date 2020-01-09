@@ -1,4 +1,4 @@
-# DrJohnson Backend
+# DrJohnson Rails
 
 DrJohnson is an Electronic Medical Records application (scaled down). It was written to showcase technologies learned from my Flatiron school coding bootcamp experience, using Ruby on Rails api for model and controller, and React for the views.
 
@@ -41,6 +41,16 @@ rails new backend --api -—database=postgresql --skip-action-mailer --skip-acti
 - providerId
 - …details
 
+### Generators
+
+```
+rails g model users email first_name last_name role:integer password_digest
+
+rails g controller api/v1/users profile create
+
+rails g controller api/v1/auth create
+```
+
 ## Tasks
 
 - [x] Scaffold Rails and React
@@ -53,4 +63,12 @@ rails new backend --api -—database=postgresql --skip-action-mailer --skip-acti
 
 ## Notes
 
+2020-01-08
+
 - Planning to use amazon s3, research Active Storage in Rails.
+- Authorization: JWT and Bcrypt. Add roles attribute to Users model.
+
+2020-01-09
+
+- enum type in Ruby model adds '?' and other methods: https://api.rubyonrails.org/v5.2.4.1/classes/ActiveRecord/Enum.html
+  -trouble using enum with validates inclusion: {in:}
