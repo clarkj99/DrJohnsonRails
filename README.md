@@ -1,24 +1,56 @@
-# README
+# DrJohnson Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DrJohnson is an Electronic Medical Records application (scaled down). It was written to showcase technologies learned from my Flatiron school coding bootcamp experience, using Ruby on Rails api for model and controller, and React for the views.
 
-Things you may want to cover:
+## Configuration
 
-* Ruby version
+- Ruby Version 2.6.1
+- Rails Version 6.0.2
 
-* System dependencies
+## Rails Project Creation
 
-* Configuration
+```bash
+rails new backend --api -—database=postgresql --skip-action-mailer --skip-action-mailbox
+```
 
-* Database creation
+## Models
 
-* Database initialization
+### User (Patient, Provider)
 
-* How to run the test suite
+- Email
+- Name
+- Role
 
-* Services (job queues, cache servers, search engines, etc.)
+### Profile
 
-* Deployment instructions
+- PatientId
+- Address
+- Photo
+- Pharmacy Address
+- InsuranceId
+- Insurance Type
 
-* ...
+### History
+
+- PatientId
+- …details
+
+### Encounter
+
+- patientId
+- providerId
+- …details
+
+## Tasks
+
+- [x] Scaffold Rails and React
+- [ ] Models and Controllers
+- [ ] Authentication and Roles
+- [ ] Seed data
+- [ ] ICD-10 Lookup/Download
+- [ ] Photo for Profile
+- [ ] Alexa Skill (?)
+
+## Notes
+
+- Planning to use amazon s3, research Active Storage in Rails.
