@@ -39,6 +39,9 @@ rails new backend --api -—database=postgresql --skip-action-mailer --skip-acti
 
 - patientId
 - providerId
+- complaint
+- appointment_at
+- checkin_at
 - …details
 
 ### Generators
@@ -71,4 +74,5 @@ rails g controller api/v1/auth create
 2020-01-09
 
 - enum type in Ruby model adds '?' and other methods: https://api.rubyonrails.org/v5.2.4.1/classes/ActiveRecord/Enum.html
-  -trouble using enum with validates inclusion: {in:}
+- trouble using enum with validates inclusion: {in:}
+- Was planning on using self-join for Provider and Patient Models: https://guides.rubyonrails.org/association_basics.html#self-joins. Instead decided to create aliases for foreign keys.

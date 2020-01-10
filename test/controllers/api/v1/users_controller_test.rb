@@ -1,14 +1,13 @@
-require 'test_helper'
+require "test_helper"
 
 class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get profile" do
-    get api_v1_users_profile_url
-    assert_response :success
+    get api_v1_profile_url
+    assert_response :unauthorized
   end
 
   test "should get create" do
-    get api_v1_users_create_url
-    assert_response :success
+    post api_v1_users_url
+    assert_response :unauthorized
   end
-
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  provider: one
+  complaint: MyText
+  appointment_at: 2020-01-09 15:08:05
+  checkin_at: 2020-01-09 15:08:05
+
+two:
+  patient: two
+  provider: two
+  complaint: MyText
+  appointment_at: 2020-01-09 15:08:05
+  checkin_at: 2020-01-09 15:08:05
