@@ -4,6 +4,7 @@ class CreateEncounters < ActiveRecord::Migration[6.0]
       t.integer :patient_id
       t.integer :provider_id
       t.text :complaint
+      t.boolean :closed, :default => false
       t.datetime :appointment_at
       t.datetime :checkin_at
 

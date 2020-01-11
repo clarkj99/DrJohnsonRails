@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "faker"
+
 User.destroy_all
+Encounter.destroy_all
 
 #admin
 User.create({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
@@ -25,3 +28,14 @@ end
   email = fname + "." + lname + "@doctor.com"
   User.create({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
 end
+
+patients = User.all.select { |user| user.role == "patient" }
+physicians = User.all.select { |user| user.role == "physician" }
+
+Encounter.create(patient: patients[0], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
+
+Encounter.create(patient: patients[2], provider: physicians[1], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
+
+Encounter.create(patient: patients[4], provider: physicians[2], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
+
+Encounter.create(patient: patients[6], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))

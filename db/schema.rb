@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_200805) do
     t.integer "patient_id"
     t.integer "provider_id"
     t.text "complaint"
+    t.boolean "closed", default: false
     t.datetime "appointment_at"
     t.datetime "checkin_at"
     t.datetime "created_at", precision: 6, null: false
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_200805) do
     t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.integer "role"
+    t.integer "role", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
