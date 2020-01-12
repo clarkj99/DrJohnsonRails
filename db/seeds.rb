@@ -28,7 +28,9 @@ end
   fname = Faker::Name.first_name
   lname = Faker::Name.last_name
   email = fname + "." + lname + "@doctor.com"
-  User.create({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
+  user = User.create({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
+
+  Profile.create(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
 end
 
 patients = User.all.select { |user| user.role == "patient" }
