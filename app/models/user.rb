@@ -16,4 +16,5 @@ class User < ApplicationRecord
 
   has_many :doctor_visits, foreign_key: "patient_id", class_name: "Encounter"
   has_many :patient_exams, foreign_key: "provider_id", class_name: "Encounter"
+  has_one :profile
 end
