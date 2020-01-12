@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       @user.save
       @token = encode_token(user_id: @user.id)
-      render json: { user: @user, jwt: @token }, status: :ok
+      render json: { user: JSON.parse(@user.to_json(:include => [:profile])), jwt: @token }, status: :ok
     else
       render json: { statusText: @user.errors.full_messages[0] }, status: :unauthorized
     end
