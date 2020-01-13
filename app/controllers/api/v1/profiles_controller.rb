@@ -1,6 +1,6 @@
 class Api::V1::ProfilesController < ApplicationController
   def show
-    render json: current_user.to_json(:include => [:profile]), status: :ok
+    render json: current_user.to_json(:include => [:profile, :history]), status: :ok
   end
 
   def update
