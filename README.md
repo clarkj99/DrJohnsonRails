@@ -52,6 +52,8 @@ rails g model users email first_name last_name role:integer password_digest
 rails g controller api/v1/users profile create
 
 rails g controller api/v1/auth create
+
+rails g model hpi encounter:references duration:integer duration_units:integer location context aggravating_factors:integer
 ```
 
 ## Tasks

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_210800) do
+ActiveRecord::Schema.define(version: 2020_01_13_152347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,26 @@ ActiveRecord::Schema.define(version: 2020_01_12_210800) do
     t.integer "bp_diastolic"
   end
 
+  create_table "hpis", force: :cascade do |t|
+    t.bigint "encounter_id", null: false
+    t.integer "duration"
+    t.integer "duration_units"
+    t.string "location"
+    t.string "context"
+    t.integer "aggravating_factors"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_hpis_on_encounter_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "address1"
     t.string "address2"
     t.string "city"
     t.integer "state"
     t.string "zip"
-    t.integer "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +62,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_210800) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "hpis", "encounters"
+  add_foreign_key "profiles", "users"
 end

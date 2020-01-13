@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: "must be minimum eight characters, at least one uppercase letter, one lowercase letter, and one number" }
   enum role: [:patient, :assistant, :practitioner, :physician, :admin]
 
-  has_many :doctor_visits, foreign_key: "patient_id", class_name: "Encounter"
-  has_many :patient_exams, foreign_key: "provider_id", class_name: "Encounter"
-  has_one :profile
+  has_many :doctor_visits, foreign_key: "patient_id", class_name: "Encounter", dependent: :destroy
+  has_many :patient_exams, foreign_key: "provider_id", class_name: "Encounter", dependent: :destroy
+  has_one :profile, dependent: :destroy
 end

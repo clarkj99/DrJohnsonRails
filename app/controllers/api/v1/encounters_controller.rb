@@ -1,7 +1,7 @@
 class Api::V1::EncountersController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
-  before_action :find_encounter, only: [:show, :edit, :destroy, :update]
+  before_action :find_encounter, only: [:show, :destroy, :update]
 
   def index
     @encounters = Encounter.all
@@ -9,10 +9,7 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-    @encounter = Encounter.new
+    render json: @encounter.to_json(:include => [:patient, :hpi]), status: :ok
   end
 
   def create
@@ -24,9 +21,6 @@ class Api::V1::EncountersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
@@ -42,7 +36,7 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def find_encounter
-    @encounter = Encounter.find(params[:id])
+    @encounter = Encounter.find(params[:id].to_i)
   end
 
   def encounter_params
