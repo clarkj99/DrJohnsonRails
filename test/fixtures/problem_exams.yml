@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appearance: 1
+  constitutional_details: MyString
+  psychiatric_state: 1
+  psychiatric_details: MyString
+  abdominal_tenderness: false
+  abdominal_details: MyString
+  mass_detected: false
+  mass_details: MyString
+  bowel_sounds: 1
+  pelvic_external: 1
+  pelvic_vaginal: false
+  pelvic_uteris: false
+  pelvic_ovaries: 1
+  pelvic_bladder: 1
+  pelvic_details: MyString
+  encounter: one
+
+two:
+  appearance: 1
+  constitutional_details: MyString
+  psychiatric_state: 1
+  psychiatric_details: MyString
+  abdominal_tenderness: false
+  abdominal_details: MyString
+  mass_detected: false
+  mass_details: MyString
+  bowel_sounds: 1
+  pelvic_external: 1
+  pelvic_vaginal: false
+  pelvic_uteris: false
+  pelvic_ovaries: 1
+  pelvic_bladder: 1
+  pelvic_details: MyString
+  encounter: two

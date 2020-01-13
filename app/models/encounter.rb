@@ -3,4 +3,6 @@ class Encounter < ApplicationRecord
   belongs_to :provider, class_name: "User"
 
   has_one :hpi, dependent: :destroy
+  has_one :rosystem, dependent: :destroy
+  has_one :problem_exam, dependent: :destroy
 end

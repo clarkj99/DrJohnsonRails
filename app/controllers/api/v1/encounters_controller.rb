@@ -9,7 +9,7 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def show
-    render json: @encounter.to_json(:include => [:patient, :hpi]), status: :ok
+    render json: @encounter.to_json(:include => [:patient, :hpi, :rosystem, :problem_exam]), status: :ok
   end
 
   def create

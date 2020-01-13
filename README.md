@@ -54,6 +54,8 @@ rails g controller api/v1/users profile create
 rails g controller api/v1/auth create
 
 rails g model hpi encounter:references duration:integer duration_units:integer location context aggravating_factors:integer
+
+rails g model rosytstems encounter:references fever:boolean fatigue:boolean appetite:boolean weight:boolean constitutional_details depression:boolean anxiety:boolean phsychiatric_details trouble_swallowing:boolean heartburn:boolean nausea:boolean vomiting:boolean irregular_bm:boolean gastrointestinal_details trouble_urinating:boolean abnormal_bleeding:boolean vaginal_discharge:boolean genital_urinary_description joint_pain:boolean joint_swelling:boolean musculoskeletal_details
 ```
 
 ## Tasks

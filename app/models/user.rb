@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :doctor_visits, foreign_key: "patient_id", class_name: "Encounter", dependent: :destroy
   has_many :patient_exams, foreign_key: "provider_id", class_name: "Encounter", dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_one :history, dependent: :destroy
 end

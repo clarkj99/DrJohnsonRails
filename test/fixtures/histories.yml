@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 1
+  pregnancy: false
+  hypertension: false
+  high_bp: false
+  cancer: false
+  breast_lump: false
+  heart_disease: false
+  abnormal_ekg: false
+  depression: false
+  diabetes1: false
+  diabetes2: false
+  infertility: false
+  mental_illness: false
+  post_menopausal_bleeding: false
+  seizures: false
+  migraines: false
+
+two:
+  patient_id: 1
+  pregnancy: false
+  hypertension: false
+  high_bp: false
+  cancer: false
+  breast_lump: false
+  heart_disease: false
+  abnormal_ekg: false
+  depression: false
+  diabetes1: false
+  diabetes2: false
+  infertility: false
+  mental_illness: false
+  post_menopausal_bleeding: false
+  seizures: false
+  migraines: false

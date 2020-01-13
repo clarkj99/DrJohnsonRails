@@ -22,6 +22,8 @@ User.create({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@g
   user = User.create({ first_name: fname, last_name: lname, email: email, role: 0, password: "Patient1234" })
 
   Profile.create(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
+
+  user.create_history
 end
 
 #physicians
@@ -39,12 +41,17 @@ physicians = User.all.select { |user| user.role == "physician" }
 
 e1 = Encounter.create(patient: patients[0], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
 e1.create_hpi
+e1.create_rosystem
+e1.create_problem_exam
 
 e2 = Encounter.create(patient: patients[2], provider: physicians[1], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
 e2.create_hpi
+e2.create_problem_exam
 
 e3 = Encounter.create(patient: patients[4], provider: physicians[2], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
 e3.create_hpi
+e3.create_problem_exam
 
 e4 = Encounter.create(patient: patients[6], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
 e4.create_hpi
+e4.create_problem_exam

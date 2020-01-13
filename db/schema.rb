@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_152347) do
+ActiveRecord::Schema.define(version: 2020_01_13_195139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,28 @@ ActiveRecord::Schema.define(version: 2020_01_13_152347) do
     t.integer "bp_diastolic"
   end
 
+  create_table "histories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.boolean "pregnancy", default: false
+    t.boolean "hypertension", default: false
+    t.boolean "high_bp", default: false
+    t.boolean "cancer", default: false
+    t.boolean "breast_lump", default: false
+    t.boolean "heart_disease", default: false
+    t.boolean "abnormal_ekg", default: false
+    t.boolean "depression", default: false
+    t.boolean "diabetes1", default: false
+    t.boolean "diabetes2", default: false
+    t.boolean "infertility", default: false
+    t.boolean "mental_illness", default: false
+    t.boolean "post_menopausal_bleeding", default: false
+    t.boolean "seizures", default: false
+    t.boolean "migraines", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
   create_table "hpis", force: :cascade do |t|
     t.bigint "encounter_id", null: false
     t.integer "duration"
@@ -42,6 +64,28 @@ ActiveRecord::Schema.define(version: 2020_01_13_152347) do
     t.index ["encounter_id"], name: "index_hpis_on_encounter_id"
   end
 
+  create_table "problem_exams", force: :cascade do |t|
+    t.bigint "encounter_id", null: false
+    t.integer "appearance"
+    t.string "constitutional_details"
+    t.integer "psychiatric_state"
+    t.string "psychiatric_details"
+    t.boolean "abdominal_tenderness", default: false
+    t.string "abdominal_details"
+    t.boolean "mass_detected", default: false
+    t.string "mass_details"
+    t.integer "bowel_sounds"
+    t.integer "pelvic_external"
+    t.integer "pelvic_vaginal"
+    t.integer "pelvic_uteris"
+    t.integer "pelvic_ovaries"
+    t.integer "pelvic_bladder"
+    t.string "pelvic_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_problem_exams_on_encounter_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "address1"
@@ -50,6 +94,34 @@ ActiveRecord::Schema.define(version: 2020_01_13_152347) do
     t.integer "state"
     t.string "zip"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "rosystems", force: :cascade do |t|
+    t.bigint "encounter_id", null: false
+    t.boolean "fever", default: false
+    t.boolean "fatigue", default: false
+    t.boolean "appetite", default: false
+    t.boolean "weight", default: false
+    t.string "constitutional_details"
+    t.boolean "depression", default: false
+    t.boolean "anxiety", default: false
+    t.string "psychiatric_details"
+    t.boolean "trouble_swallowing", default: false
+    t.boolean "heartburn", default: false
+    t.boolean "nausea", default: false
+    t.boolean "vomiting", default: false
+    t.boolean "irregular_bm", default: false
+    t.string "gastrointestinal_details"
+    t.boolean "trouble_urinating", default: false
+    t.boolean "abnormal_bleeding", default: false
+    t.boolean "vaginal_discharge", default: false
+    t.string "genital_urinary_description"
+    t.boolean "joint_pain", default: false
+    t.boolean "joint_swelling", default: false
+    t.string "musculoskeletal_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_rosystems_on_encounter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,6 +134,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_152347) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "histories", "users"
   add_foreign_key "hpis", "encounters"
+  add_foreign_key "problem_exams", "encounters"
   add_foreign_key "profiles", "users"
+  add_foreign_key "rosystems", "encounters"
 end

@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounter: one
+  fever: false
+  fatigue: false
+  appetite: false
+  weight: false
+  constitutional_details: MyString
+  depression: false
+  anxiety: false
+  phsychiatric_details: MyString
+  trouble_swallowing: false
+  heartburn: false
+  nausea: false
+  vomiting: false
+  irregular_bm: false
+  gastrointestinal_details: MyString
+  trouble_urinating: false
+  abnormal_bleeding: false
+  vaginal_discharge: false
+  genital_urinary_description: MyString
+  joint_pain: MyString
+  joint_swelling: MyString
+  musculoskeletal_details: MyString
+
+two:
+  encounter: two
+  fever: false
+  fatigue: false
+  appetite: false
+  weight: false
+  constitutional_details: MyString
+  depression: false
+  anxiety: false
+  phsychiatric_details: MyString
+  trouble_swallowing: false
+  heartburn: false
+  nausea: false
+  vomiting: false
+  irregular_bm: false
+  gastrointestinal_details: MyString
+  trouble_urinating: false
+  abnormal_bleeding: false
+  vaginal_discharge: false
+  genital_urinary_description: MyString
+  joint_pain: MyString
+  joint_swelling: MyString
+  musculoskeletal_details: MyString
