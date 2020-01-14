@@ -9,7 +9,7 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def show
-    render json: @encounter.to_json(:include => [:patient, :hpi, :rosystem, :problem_exam]), status: :ok
+    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :hpi => {}, :rosystem => {}, :problem_exam => {} }), status: :ok
   end
 
   def create
@@ -25,9 +25,7 @@ class Api::V1::EncountersController < ApplicationController
 
   def update
     if @encounter.update(encounter_params)
-      redirect_to encounter_path(@encounter)
-    else
-      render :edit
+      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :hpi => {}, :rosystem => {}, :problem_exam => {} }), status: :ok
     end
   end
 

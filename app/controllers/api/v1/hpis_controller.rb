@@ -16,10 +16,10 @@ class Api::V1::HpisController < ApplicationController
   private
 
   def find_hpi
-    @hpi = HPI.find(params[:id])
+    @hpi = Hpi.find(params[:id])
   end
 
   def hpi_params
-    params.require(:hpi).permit(:duration, :duration_units, :location, :context, :aggravating_factors)
+    params.require(:hpi).permit(:duration, :duration_units, :location, :context, :aggravating_factors, :severity)
   end
 end

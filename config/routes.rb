@@ -6,7 +6,10 @@ Rails.application.routes.draw do
       patch "profile", to: "profiles#update"
       post "users", to: "users#create"
       get "encounters", to: "encounters#index"
-      get "encounters/:id", to: "encounters#show"
+      get "encounter/:id", to: "encounters#show"
+      patch "encounter/:id", to: "encounters#update"
+      get "hpi/:id", to: "hpis#show"
+      patch "hpi/:id", to: "hpis#update"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
