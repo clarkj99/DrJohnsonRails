@@ -5,7 +5,7 @@ class Api::V1::EncountersController < ApplicationController
 
   def index
     @encounters = Encounter.all
-    render json: @encounters.to_json(:include => [:patient, :hpi, :rosystem, :problem_exam]), status: :ok
+    render json: @encounters.to_json(:include => { :patient => { :include => { :profile => {} } }, :hpi => {}, :rosystem => {}, :problem_exam => {} }), status: :ok
   end
 
   def show
