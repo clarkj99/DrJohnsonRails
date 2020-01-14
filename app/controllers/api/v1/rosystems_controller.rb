@@ -16,7 +16,7 @@ class Api::V1::RosystemsController < ApplicationController
   private
 
   def find_rosystem
-    @rosystem = rosystem.find(params[:id])
+    @rosystem = Rosystem.find(params[:id])
   end
 
   def rosystem_params
