@@ -5,4 +5,6 @@ class Encounter < ApplicationRecord
   has_one :hpi, dependent: :destroy
   has_one :rosystem, dependent: :destroy
   has_one :problem_exam, dependent: :destroy
+
+  enum status: [:open, :closed]
 end

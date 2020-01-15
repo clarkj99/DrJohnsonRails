@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  # skip_before_action :authorized, only: [:create]
+
+  def index
+    @users = User.patient
+    render json: @users.to_json(:include => [:profile]), status: :ok
+  end
 
   def create
     @user = User.new({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: 0 })

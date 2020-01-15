@@ -1,5 +1,5 @@
 class Api::V1::EncountersController < ApplicationController
-  skip_before_action :authorized, only: [:index]
+  # skip_before_action :authorized, only: [:index]
 
   before_action :find_encounter, only: [:show, :destroy, :update]
 

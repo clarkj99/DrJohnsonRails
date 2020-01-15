@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_151112) do
+ActiveRecord::Schema.define(version: 2020_01_15_152016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_14_151112) do
     t.integer "height"
     t.integer "bp_systolic"
     t.integer "bp_diastolic"
+    t.integer "status"
   end
 
   create_table "histories", force: :cascade do |t|
