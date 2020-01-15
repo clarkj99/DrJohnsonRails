@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       patch "hpi/:id", to: "hpis#update"
       get "rosystem/:id", to: "rosystems#show"
       patch "rosystem/:id", to: "rosystems#update"
+      get "problem_exam/:id", to: "problem_exams#show"
+      patch "problem_exam/:id", to: "problem_exams#update"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
