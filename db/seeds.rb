@@ -15,7 +15,7 @@ User.destroy_all
 User.create({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
 
 #patients
-10.times do
+30.times do
   fname = Faker::Name.female_first_name
   lname = Faker::Name.last_name
   email = fname + "." + lname + "@patient.com"
