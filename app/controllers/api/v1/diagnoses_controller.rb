@@ -20,6 +20,6 @@ class Api::V1::DiagnosesController < ApplicationController
   end
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:duration, :duration_units, :location, :context, :aggravating_factors, :severity)
+    params.require(:diagnosis).permit(:orders, :follow_up, :icd)
   end
 end
