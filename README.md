@@ -82,4 +82,17 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - Was planning on using self-join for Provider and Patient Models: https://guides.rubyonrails.org/association_basics.html#self-joins. Instead decided to create aliases for foreign keys.
 
 2020-01-15
-enums in Rails are fun, and they add some useful methods for free.
+
+- enums in Rails are fun, and they add some useful methods for free.
+
+2020-01-16
+
+- process for creating a new encounters form route:
+  - `rails g model model_name encounter:references field`
+  - add `has-one` to encounter model
+  - create controller
+  - add get and patch routes to `routes.rb`
+  - add to `seeds.rb` file
+  - `rails db:migrate`
+  - `rails db:reset`
+  - test in postman

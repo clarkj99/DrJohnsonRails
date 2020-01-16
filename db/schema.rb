@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_004513) do
+ActiveRecord::Schema.define(version: 2020_01_16_153912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diagnoses", force: :cascade do |t|
+    t.bigint "encounter_id", null: false
+    t.text "orders"
+    t.text "follow_up"
+    t.string "icd"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_diagnoses_on_encounter_id"
+  end
 
   create_table "encounters", force: :cascade do |t|
     t.integer "patient_id"
@@ -64,6 +74,20 @@ ActiveRecord::Schema.define(version: 2020_01_16_004513) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "severity"
     t.index ["encounter_id"], name: "index_hpis_on_encounter_id"
+  end
+
+  create_table "intakes", force: :cascade do |t|
+    t.bigint "encounter_id", null: false
+    t.text "complaint"
+    t.datetime "appointment_at"
+    t.datetime "checkin_at"
+    t.integer "weight"
+    t.integer "height"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_intakes_on_encounter_id"
   end
 
   create_table "problem_exams", force: :cascade do |t|
@@ -137,8 +161,10 @@ ActiveRecord::Schema.define(version: 2020_01_16_004513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "diagnoses", "encounters"
   add_foreign_key "histories", "users"
   add_foreign_key "hpis", "encounters"
+  add_foreign_key "intakes", "encounters"
   add_foreign_key "problem_exams", "encounters"
   add_foreign_key "profiles", "users"
   add_foreign_key "rosystems", "encounters"

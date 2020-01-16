@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounter: one
+  complaint: MyText
+  appointment_at: 2020-01-16 10:09:51
+  checkin_at: 2020-01-16 10:09:51
+  weight: 1
+  height: 1
+  bp_systolic: 1
+  bp_diastolic: 1
+
+two:
+  encounter: two
+  complaint: MyText
+  appointment_at: 2020-01-16 10:09:51
+  checkin_at: 2020-01-16 10:09:51
+  weight: 1
+  height: 1
+  bp_systolic: 1
+  bp_diastolic: 1
