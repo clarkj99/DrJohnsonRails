@@ -6,7 +6,7 @@ class Api::V1::IntakesController < ApplicationController
   end
 
   def update
-    if @intake.update(intake_params)
+    if @intake.update!(intake_params)
       render json: @intake, status: :ok
     else
       render json: { statusText: @intake.errors.full_messages[0] }, status: :unauthorized
