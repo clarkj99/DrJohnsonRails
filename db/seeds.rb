@@ -12,16 +12,16 @@ Encounter.destroy_all
 User.destroy_all
 
 #admin
-User.create({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
+User.create!({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
 
 #patients
 30.times do
   fname = Faker::Name.female_first_name
   lname = Faker::Name.last_name
   email = fname + "." + lname + "@patient.com"
-  user = User.create({ first_name: fname, last_name: lname, email: email, role: 0, password: "Patient1234" })
+  user = User.create!({ first_name: fname, last_name: lname, email: email, role: 0, password: "Patient1234" })
 
-  Profile.create(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, photo: Faker::Avatar.image, user: user)
+  Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, photo: Faker::Avatar.image, user: user)
 
   user.create_history
 end
@@ -31,9 +31,9 @@ end
   fname = Faker::Name.first_name
   lname = Faker::Name.last_name
   email = fname + "." + lname + "@doctor.com"
-  user = User.create({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
+  user = User.create!({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
 
-  Profile.create(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
+  Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
 end
 
 patients = User.all.select { |user| user.role == "patient" }

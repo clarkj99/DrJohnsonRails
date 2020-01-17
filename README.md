@@ -88,6 +88,7 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 2020-01-16
 
 - process for creating a new encounters form route:
+
   - `rails g model model_name encounter:references field`
   - add `has-one` to encounter model
   - create controller
@@ -96,3 +97,9 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
   - `rails db:migrate`
   - `rails db:reset`
   - test in postman
+
+2020-01-17
+
+- use `rails:credentials:edit` for secrets and private keys
+- `gem "aws-sdk-s3", require: false`
+- https://edgeguides.rubyonrails.org/active_storage_overview.html#setup

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       patch "intake/:id", to: "intakes#update"
       get "diagnosis/:id", to: "diagnoses#show"
       patch "diagnosis/:id", to: "diagnoses#update"
+      get "photo/:id", to: "photos#show"
+      patch "photo/:id", to: "photos#update"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
