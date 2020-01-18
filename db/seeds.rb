@@ -21,7 +21,8 @@ User.create!({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@
   email = fname + "." + lname + "@patient.com"
   user = User.create!({ first_name: fname, last_name: lname, email: email, role: 0, password: "Patient1234" })
 
-  Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, photo: Faker::Avatar.image, user: user)
+  Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
+  # Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, photo: Faker::Avatar.image, user: user)
 
   user.create_history
 end
