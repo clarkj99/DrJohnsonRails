@@ -1,15 +1,23 @@
 class Api::V1::UsersController < ApplicationController
-  # skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:demo]
 
   def index
-    @users = User.patient
+    @users = User.patient.order(created_at: :desc)
     render json: @users.to_json(:include => [:profile]), status: :ok
   end
 
+  def demo
+    patient = User.patient[0]
+    physician = User.physician[0]
+    render json: { patient: patient, physician: physician }, status: :ok
+  end
+
   def create
-    @user = User.new({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: 0 })
+    @user = User.create({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: 0 })
     if @user.valid?
-      @user.save
+      @user.create_history
+      @user.create_profile
+      # @user.save
       @token = encode_token(user_id: @user.id)
 
       render json: { user: JSON.parse(@user.to_json(:include => [:profile])), jwt: @token }, status: :ok

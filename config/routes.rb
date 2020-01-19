@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       patch "profile", to: "profiles#update"
       get "users", to: "users#index"
       post "users", to: "users#create"
+      get "demo", to: "users#demo"
       get "encounters", to: "encounters#index"
       get "encounter/:id", to: "encounters#show"
       patch "encounter/:id", to: "encounters#update"
