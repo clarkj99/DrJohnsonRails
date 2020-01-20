@@ -49,16 +49,8 @@ ActiveRecord::Schema.define(version: 2020_01_17_205936) do
   create_table "encounters", force: :cascade do |t|
     t.integer "patient_id"
     t.integer "provider_id"
-    t.text "complaint"
-    t.boolean "closed", default: false
-    t.datetime "appointment_at"
-    t.datetime "checkin_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "weight"
-    t.integer "height"
-    t.integer "bp_systolic"
-    t.integer "bp_diastolic"
     t.integer "status"
   end
 

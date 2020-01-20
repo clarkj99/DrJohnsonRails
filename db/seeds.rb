@@ -40,28 +40,28 @@ end
 patients = User.all.select { |user| user.role == "patient" }
 physicians = User.all.select { |user| user.role == "physician" }
 
-e1 = Encounter.create(patient: patients[0], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), status: "open")
-e1.create_intake
+e1 = Encounter.create(patient: patients[0], provider: physicians[0], status: "open")
+e1.create_intake(complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
 e1.create_hpi
 e1.create_rosystem
 e1.create_problem_exam
 e1.create_diagnosis
 
-e2 = Encounter.create(patient: patients[2], provider: physicians[1], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), status: "open")
+e2 = Encounter.create(patient: patients[2], provider: physicians[1], status: "open")
 e2.create_intake
 e2.create_hpi
 e2.create_rosystem
 e2.create_problem_exam
 e2.create_diagnosis
 
-e3 = Encounter.create(patient: patients[4], provider: physicians[2], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), status: "open")
+e3 = Encounter.create(patient: patients[4], provider: physicians[2], status: "open")
 e3.create_intake
 e3.create_hpi
 e3.create_rosystem
 e3.create_problem_exam
 e3.create_diagnosis
 
-e4 = Encounter.create(patient: patients[6], provider: physicians[0], complaint: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, appointment_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), checkin_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day), status: "open")
+e4 = Encounter.create(patient: patients[6], provider: physicians[0], status: "open")
 e4.create_intake
 e4.create_hpi
 e4.create_rosystem

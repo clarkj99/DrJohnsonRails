@@ -2,7 +2,15 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:demo]
 
   def index
-    @users = User.patient.order(created_at: :desc)
+    case params[:role]
+    when "patient"
+      @users = User.patient.order(created_at: :desc)
+    when "physician"
+      @users = User.physician.order(:last_name)
+    else
+      @users = User.all.order(created_at: :desc)
+    end
+
     render json: @users.to_json(:include => [:profile]), status: :ok
   end
 

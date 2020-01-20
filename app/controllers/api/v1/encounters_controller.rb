@@ -13,19 +13,25 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def create
-    @encounter = Encounter.new(encounter_params)
+    @encounter = Encounter.create(encounter_params)
 
     if @encounter.valid?
-      @encounter.save
-      redirect_to encounters_path
+      @encounter.create_intake
+      @encounter.create_hpi
+      @encounter.create_rosystem
+      @encounter.create_problem_exam
+      @encounter.create_diagnosis
+      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
     else
-      render :new
+      render json: { error: @encounter.errors.full_messages[0] }, status: :bad_request
     end
   end
 
   def update
     if @encounter.update(encounter_params)
       render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+    else
+      render json: { statusText: @encounter.errors.full_messages[0] }, status: :bad_request
     end
   end
 
@@ -38,6 +44,6 @@ class Api::V1::EncountersController < ApplicationController
   end
 
   def encounter_params
-    params.require(:encounter).permit()
+    params.require(:encounter).permit(:patient_id, :provider_id, :status)
   end
 end

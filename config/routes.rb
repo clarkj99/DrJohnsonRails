@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post "users", to: "users#create"
       get "demo", to: "users#demo"
       get "encounters", to: "encounters#index"
+      post "encounters", to: "encounters#create"
       get "encounter/:id", to: "encounters#show"
       patch "encounter/:id", to: "encounters#update"
       get "hpi/:id", to: "hpis#show"
