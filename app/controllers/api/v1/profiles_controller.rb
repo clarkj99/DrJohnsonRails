@@ -4,14 +4,15 @@ class Api::V1::ProfilesController < ApplicationController
   end
 
   def update
-    if current_user.profile.update(profile_params)
-      render json: current_user.to_json(:include => [:profile]), status: :ok
+    @user = User.find(params[:profile][:user_id])
+    if @user.profile.update(profile_params)
+      render json: @user.profile, status: :ok
     end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:address1, :address2, :city, :state, :zip)
+    params.require(:profile).permit(:address1, :address2, :city, :state, :zip, :user_id)
   end
 end

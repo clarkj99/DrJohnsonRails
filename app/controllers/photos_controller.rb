@@ -7,7 +7,7 @@ class Api::V1::PhotosController < ApplicationController
 
   def update
     if @profile.update(photo: photo_params[:photo])
-      render json: current_user.to_json(:include => [:profile]), status: :ok
+      render json: @profile, status: :ok
     end
   end
 
