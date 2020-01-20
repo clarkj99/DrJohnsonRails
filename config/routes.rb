@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       post "auth", to: "auth#create"
       get "profile", to: "profiles#show"
       patch "profile", to: "profiles#update"
+      get "history/:id", to: "histories#show"
+      patch "history/:id", to: "histories#update"
       get "users", to: "users#index"
       post "users", to: "users#create"
       get "demo", to: "users#demo"

@@ -5,11 +5,11 @@ class Api::V1::EncountersController < ApplicationController
 
   def index
     @encounters = Encounter.all
-    render json: @encounters.to_json(:include => { :patient => { :include => { :profile => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+    render json: @encounters.to_json(:include => { :patient => { :include => { :profile => {}, :history => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
   end
 
   def show
-    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {}, :history => {} } }, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
   end
 
   def create
