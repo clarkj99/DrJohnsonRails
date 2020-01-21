@@ -20,6 +20,6 @@ class Api::V1::RosystemsController < ApplicationController
   end
 
   def rosystem_params
-    params.require(:rosystem).permit(:fever, :fatigue, :appetite, :weight, :constitutional_details, :depression, :anxiety, :psychiatric_details, :trouble_swallowing, :heartburn, :nausea, :vomiting, :irregular_bm, :gastrointestinal_details, :trouble_urinating, :abnormal_bleeding, :vaginal_discharge, :joint_pain, :joint_swelling, :musculoskeletal_details)
+    params.require(:rosystem).permit(:fever, :fatigue, :appetite, :weight, :constitutional_details, :depression, :anxiety, :psychiatric_details, :trouble_swallowing, :heartburn, :nausea, :vomiting, :irregular_bm, :gastrointestinal_details, :trouble_urinating, :abnormal_bleeding, :vaginal_discharge, :genital_urinary_description, :joint_pain, :joint_swelling, :musculoskeletal_details)
   end
 end
