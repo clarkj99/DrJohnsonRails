@@ -1,0 +1,21 @@
+class Api::V1::Icd10sController < ApplicationController
+  before_action :find_icd10, only: [:show]
+
+  def index
+    if params[:term].length > 0
+      @icd10s = Icd10.where("(code like 'O%'  OR code like 'M%') AND description like ?", "%#{params[:term]}%").limit(100)
+    else
+      # @icd10s = Icd10.where("code like 'O%'  OR code like 'M%'").limit(10)
+      @icd10s = []
+    end
+    render json: @icd10s, status: :ok
+  end
+
+  def show
+    render json: @icd10, status: :ok
+  end
+
+  def find_icd10
+    @icd10 = Icd10.find(params[:id])
+  end
+end

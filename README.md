@@ -103,3 +103,9 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - use `rails:credentials:edit` for secrets and private keys
 - `gem "aws-sdk-s3", require: false`
 - https://edgeguides.rubyonrails.org/active_storage_overview.html#setup
+
+2020-01-21
+
+- importing ICD10 file `Section111ValidICD10-Jan2020.csv`
+- implement text search `User.where("username like ?", "%olitreadwell%")`
+  ``

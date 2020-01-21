@@ -7,4 +7,5 @@ class ProblemExam < ApplicationRecord
   enum pelvic_vaginal: [:normal_vaginal, :painful_vaginal, :inflamed_vaginal, :bleeding_vaginal]
   enum pelvic_uteris: [:normal_uteris, :painful_uteris, :inflamed_uteris, :bleeding_uteris]
   enum pelvic_ovaries: [:normal_ovaries, :painful_ovaries, :inflamed_ovaries, :bleeding_ovaries]
+  enum pelvic_bladder: [:normal_bladder, :painful_bladder, :inflamed_bladder, :bleeding_bladder]
 end

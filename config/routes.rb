@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       patch "diagnosis/:id", to: "diagnoses#update"
       get "photo/:id", to: "photos#show"
       patch "photo/:id", to: "photos#update"
+      get "icd10s", to: "icd10s#index"
+      get "icd10/:id", to: "icd10s#show"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

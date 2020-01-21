@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_205936) do
+ActiveRecord::Schema.define(version: 2020_01_21_154036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(version: 2020_01_17_205936) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "severity"
     t.index ["encounter_id"], name: "index_hpis_on_encounter_id"
+  end
+
+  create_table "icd10s", force: :cascade do |t|
+    t.string "code"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "intakes", force: :cascade do |t|
