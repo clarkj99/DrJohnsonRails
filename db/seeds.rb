@@ -30,7 +30,8 @@ puts "patients --------------"
 30.times do
   fname = Faker::Name.unique.female_first_name
   lname = Faker::Name.last_name
-  email = fname + "." + lname + "@patient.com"
+  email = Faker::Internet.email
+  # email = fname + "." + lname + "@patient.com"
   user = User.create!({ first_name: fname, last_name: lname, email: email, role: 0, password: "Patient1234" })
 
   Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
@@ -44,7 +45,8 @@ puts "physicians --------------"
 3.times do
   fname = Faker::Name.unique.first_name
   lname = Faker::Name.last_name
-  email = fname + "." + lname + "@doctor.com"
+  email = Faker::Internet.email
+  # email = fname + "." + lname + "@doctor.com"
   user = User.create!({ first_name: fname, last_name: lname, email: email, role: 3, password: "Physician1234" })
 
   Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
