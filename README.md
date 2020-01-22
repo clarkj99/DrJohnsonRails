@@ -1,4 +1,4 @@
-# DrJohnson Rails
+# DrJohnson Rails-Backend
 
 DrJohnson is an Electronic Medical Records application (scaled down). It was written to showcase technologies learned from my Flatiron school coding bootcamp experience, using Ruby on Rails api for model and controller, and React for the views.
 
@@ -108,4 +108,12 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 
 - importing ICD10 file `Section111ValidICD10-Jan2020.csv`
 - implement text search `User.where("username like ?", "%olitreadwell%")`
-  ``
+- ActiveStorageImported ICD10 csv file with exactly 65535 rows, so probs not complete list.
+- ActiveStorage works with `<input type="file" />`. Still failing on base64 image from camera.
+
+2020-01-22
+
+- setting up S3 in ActiveStorage.
+- access keys were saved in .csv
+- `EDITOR="code --wait" bin/rails credentials:edit` ,
+- or add `export EDITOR="subl --wait"` to shell profile and run `bin/rails credentials:edit`
