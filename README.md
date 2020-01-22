@@ -119,4 +119,5 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - or add `export EDITOR="subl --wait"` to shell profile and run `bin/rails credentials:edit`
 
 - don'f forget Procfile for Heroku:
-  don't forget `master.key` content environment variable to rails.
+- don't forget `master.key` content environment variable to rails.
+- 10000 record Heroku limit hit on Icd10 csv. Gotta whittle it down.
