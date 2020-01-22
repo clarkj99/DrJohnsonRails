@@ -117,3 +117,6 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - access keys were saved in .csv
 - `EDITOR="code --wait" bin/rails credentials:edit` ,
 - or add `export EDITOR="subl --wait"` to shell profile and run `bin/rails credentials:edit`
+
+- don'f forget Procfile for Heroku:
+  don't forget `master.key` content environment variable to rails.
