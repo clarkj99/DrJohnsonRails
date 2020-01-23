@@ -21,7 +21,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.create({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: 0 })
+    if current_user.role == "patient"
+      role = 0
+    else
+      role = 3
+    end
+    @user = User.create({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: role })
     if @user.valid?
       @user.create_history
       @user.create_profile

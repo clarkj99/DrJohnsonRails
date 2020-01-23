@@ -37,6 +37,7 @@ class Api::V1::EncountersController < ApplicationController
 
   def destroy
     @encounter.destroy
+    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
   end
 
   def find_encounter

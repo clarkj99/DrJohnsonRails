@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post "encounters", to: "encounters#create"
       get "encounter/:id", to: "encounters#show"
       patch "encounter/:id", to: "encounters#update"
+      delete "encounter/:id", to: "encounters#destroy"
       get "hpi/:id", to: "hpis#show"
       patch "hpi/:id", to: "hpis#update"
       get "rosystem/:id", to: "rosystems#show"
