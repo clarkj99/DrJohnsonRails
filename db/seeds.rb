@@ -23,7 +23,9 @@ if importICD10
 end
 puts "admin --------------"
 #admin
-User.create!({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
+user= User.create!({ first_name: "Clark", last_name: "Johnson", email: "clarkandkathy@gmail.com", role: 4, password: "Admin1234" })
+Profile.create!(address1: Faker::Address.street_address, address2: "", city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, user: user)
+
 
 puts "patients --------------"
 #patients
