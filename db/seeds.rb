@@ -69,7 +69,7 @@ e4.create_diagnosis
 if importICD10
   Icd10.destroy_all
   puts "ICD10 --------------"
-  csv_text = File.path(Rails.root.join("db", "Section111ValidICD10-Jan2020.csv"))
+  csv_text = File.path(Rails.root.join("db", "Section.csv"))
   count = 1
   CSV.foreach(csv_text) do |row|
     Icd10.create(code: row[0], description: row[1])
