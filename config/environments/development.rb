@@ -1,5 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.hosts << "www.dekalbwebdev.net"
+  config.hosts << "dekalbwebdev.net"
   config.hosts << "drjohnson.dekalbwebdev.net"
 
   # In the development environment your application's code is reloaded on
