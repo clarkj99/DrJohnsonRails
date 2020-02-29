@@ -6,12 +6,13 @@ class Api::V1::PhotosController < ApplicationController
   end
 
   def update
+
+    # Handle either a file upload, image, or a link
     if params[:file]
       @profile.avatar.attach(params[:file])
       photo = url_for(@profile.avatar)
     elsif params[:camera]
       blob = ActiveStorage::Blob.create_after_upload!(
-        # io: StringIO.new((params[:camera])),
         io: StringIO.new((Base64.decode64(params[:camera].split(",")[1]))),
         filename: "user.png",
         content_type: "image/png",

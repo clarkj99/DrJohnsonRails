@@ -27,6 +27,8 @@ class Api::V1::UsersController < ApplicationController
       role = 3
     end
     @user = User.create({ email: user_params[:email], first_name: user_params[:first_name], last_name: user_params[:last_name], password: user_params[:password], role: role })
+
+    # We want to create both history and profile along with user
     if @user.valid?
       @user.create_history
       @user.create_profile
