@@ -21,7 +21,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    if current_user.role == "patient"
+    if current_user.role == "physician"
       role = 0
     else
       role = 3
