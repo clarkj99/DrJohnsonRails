@@ -5,7 +5,7 @@ puts "DESTROY --------------"
 Encounter.destroy_all
 User.destroy_all
 
-importICD10 = true
+importICD10 = false
 
 puts "patients --------------"
 #patients

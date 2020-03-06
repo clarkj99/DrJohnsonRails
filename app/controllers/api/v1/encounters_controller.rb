@@ -21,7 +21,7 @@ class Api::V1::EncountersController < ApplicationController
       @encounter.create_rosystem
       @encounter.create_problem_exam
       @encounter.create_diagnosis
-      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {}, :history => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
     else
       render json: { error: @encounter.errors.full_messages[0] }, status: :bad_request
     end
@@ -29,7 +29,7 @@ class Api::V1::EncountersController < ApplicationController
 
   def update
     if @encounter.update(encounter_params)
-      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+      render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {}, :history => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
     else
       render json: { statusText: @encounter.errors.full_messages[0] }, status: :bad_request
     end
@@ -37,7 +37,7 @@ class Api::V1::EncountersController < ApplicationController
 
   def destroy
     @encounter.destroy
-    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
+    render json: @encounter.to_json(:include => { :patient => { :include => { :profile => {}, :history => {} } }, :provider => {}, :intake => {}, :hpi => {}, :rosystem => {}, :problem_exam => {}, :diagnosis => {} }), status: :ok
   end
 
   def find_encounter
