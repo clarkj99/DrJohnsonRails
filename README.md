@@ -121,3 +121,10 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - don'f forget Procfile for Heroku:
 - don't forget `master.key` content environment variable to rails.
 - 10000 record Heroku limit hit on Icd10 csv. Gotta whittle it down.
+
+## SWAGGER Docs
+
+- `gem "rspec-rails", "~> 4.0.0"` in development and test
+- `gem "rswag"`
+- Then run `rails g rswag:specs:install` at command line. Doc is created in spec/swagger_helper.rb.
+- For the ui, run `rails g rswag:ui:install`.

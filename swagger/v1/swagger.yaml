@@ -1,0 +1,37 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/encounters":
+    post:
+      summary: Create an Encounter
+      tags:
+      - Encounters
+      parameters: []
+      responses:
+        '201':
+          description: encountwer created
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                patient_id:
+                  type: integer
+                provider_id:
+                  type: integer
+              required:
+              - patient_id
+              - provider_id
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: drjohnson.dekalwebdev.com
