@@ -127,4 +127,10 @@ rails g model rosytstems encounter:references fever:boolean fatigue:boolean appe
 - `gem "rspec-rails", "~> 4.0.0"` in development and test
 - `gem "rswag"`
 - Then run `rails g rswag:specs:install` at command line. Doc is created in spec/swagger_helper.rb.
+- `rails g rspec:install` to generate rails_helper.rb.
 - For the ui, run `rails g rswag:ui:install`.
+- `/api-docs/v1/swagger.yaml` in /config/integrations/rswag_api.rb.
+- Create and edit integration spec. `rails generate rspec:swagger API::V1::Encounters_Controller`
+- check routes.rb
+  `rswag:specs:swaggerize`
+  start server and navigate to /api-docs/
